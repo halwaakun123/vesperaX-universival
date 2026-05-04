@@ -1,0 +1,126 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "VesperaX",
+   Icon = 0,
+   LoadingTitle = "Welcome To VesperaX!",
+   LoadingSubtitle = "by Halwa-H",
+   ShowText = "Welcome To VesperaX!",
+   Theme = "Bloom",
+
+   ToggleUIKeybind = "P",
+
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false,
+
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil,
+      FileName = "VesperaX"
+   },
+
+   Discord = {
+      Enabled = false,
+      Invite = "",
+      RememberJoins = true
+   },
+
+   KeySystem = true,
+   KeySettings = {
+      Title = "VesperaX key",
+      Subtitle = "Key System",
+      Note = "Just Type VesperaX",
+      FileName = "Key",
+      SaveKey = false,
+      GrabKeyFromSite = true,
+      Key = {"VesperaX"}
+   }
+})
+
+
+local Tab = Window:CreateTab("Main", 4483362458)
+local Section = Tab:CreateSection("Main Section")
+
+Tab:CreateButton({
+   Name = "Front/Back Flip tools",
+   Callback = function()
+      loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Universal-Frontflip-and-Backflip-Tools-47199"))()
+   end,
+})
+
+Tab:CreateToggle({
+   Name = "Super-Human",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+      local humanoid = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+
+      if humanoid then
+         if Value then
+            humanoid.WalkSpeed = 120
+            humanoid.JumpPower = 120
+         else
+            humanoid.WalkSpeed = 16
+            humanoid.JumpPower = 50
+         end
+      end
+   end,
+})
+
+Tab:CreateButton({
+   Name = "Inf Yeild",
+   Callback = function()
+      loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Infinite-Yeild-FE-92170"))()
+   end,
+})
+
+
+local Tab = Window:CreateTab("Local Player", 4483362458)
+local Section = Tab:CreateSection("Players Local")
+
+Tab:CreateSlider({
+   Name = "WalkSpeed Adjustment",
+   Range = {16, 500},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "Slider1",
+   Callback = function(Value)
+      local player = game.Players.LocalPlayer
+      local character = player.Character or player.CharacterAdded:Wait()
+      local humanoid = character:FindFirstChild("Humanoid")
+
+      if humanoid then
+         humanoid.WalkSpeed = Value
+      end
+   end,
+})
+
+Tab:CreateSlider({
+   Name = "JumpPower",
+   Range = {50, 350},
+   Increment = 10,
+   Suffix = "Jump",
+   CurrentValue = 50,
+   Flag = "Slider2", -- beda dari Slider1
+   Callback = function(Value)
+      local player = game.Players.LocalPlayer
+      local character = player.Character or player.CharacterAdded:Wait()
+      local humanoid = character:FindFirstChild("Humanoid")
+
+      if humanoid then
+         humanoid.JumpPower = Value
+      end
+   end,
+})
+
+
+local Tab = Window:CreateTab("Other", 4483362458)
+local Section = Tab:CreateSection("Other Section")
+
+Tab:CreateButton({
+   Name = "Invisible Button",
+   Callback = function()
+      loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Awesome-Invisible-man-133400"))()
+   end,
+})
