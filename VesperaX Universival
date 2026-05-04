@@ -124,3 +124,10 @@ Tab:CreateButton({
       loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Awesome-Invisible-man-133400"))()
    end,
 })
+
+Tab:CreateButton({
+   Name = "Anti Afk By Gio",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/halwa703/Anti-afk/refs/heads/main/Anti%20afk"))()
+   end,
+})
